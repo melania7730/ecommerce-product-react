@@ -5,17 +5,19 @@ import avatar from "../assets/images/image-avatar.png";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center p-6 bg-white">
-      <div className="logo">
-        <img src={logo} alt="sneakers" />
+    <header className="flex justify-between items-center py-7 pl-10 pr-14 bg-white max-w-[1220px] border border-slate-600 mx-auto">
+      <div className="flex">
+        <div className="logo ml-3 mr-14">
+          <img src={logo} alt="sneakers" />
+        </div>
+        <nav className="flex space-x-8">
+          <a href="#">Collections</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
       </div>
-      <nav className="flex space-x-6">
-        <a href="#">Collections</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav>
       <div className="flex items-center space-x-6">
         <button className="relative">
           <img src={cartIcon} alt="Cart" />
