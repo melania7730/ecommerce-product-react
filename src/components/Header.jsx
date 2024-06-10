@@ -5,30 +5,40 @@ import avatar from "../assets/images/image-avatar.png";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-7 pl-10 pr-14 bg-white max-w-[1220px] border border-slate-600 mx-auto">
-      <div className="flex">
-        <div className="logo ml-3 mr-14">
+    <header className="flex justify-between items-center py-8 px-14 max-w-[1220px] border-b border-slate-300 mx-auto">
+      <div className="flex items-center">
+        <div className="logo mr-14">
           <img src={logo} alt="sneakers" />
         </div>
-        <nav className="flex space-x-8">
-          <a href="#">Collections</a>
-          <a href="#">Men</a>
-          <a href="#">Women</a>
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+        <nav className="hidden md:flex space-x-8 text-gray-500">
+          <a href="#" className="hover:text-black">
+            Collections
+          </a>
+          <a href="#" className="hover:text-black">
+            Men
+          </a>
+          <a href="#" className="hover:text-black">
+            Women
+          </a>
+          <a href="#" className="hover:text-black">
+            About
+          </a>
+          <a href="#" className="hover:text-black">
+            Contact
+          </a>
         </nav>
       </div>
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-12">
         <button className="relative">
           <img src={cartIcon} alt="Cart" />
-          <span className="absolute top-0 right-0 bg-orange-500 text-white rounded-full px-2 text-xs">
+          <span className="absolute top-0 right-0 translate-x-2/3 -translate-y-1/2 bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
             0
           </span>
         </button>
         <img
           src={avatar}
           alt="User Avatar"
-          className="w-10 h-10 rounded-full"
+          className="w-12 h-12 rounded-full"
         />
       </div>
     </header>
