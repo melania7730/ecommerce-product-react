@@ -8,6 +8,7 @@ import "./index.css";
 function App() {
   const [quantity, setQuantity] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const [isCartVisible, setIsCartVisible] = useState(false);
 
   const handleAddToCart = () => {
     if (quantity > 0) {
@@ -18,7 +19,7 @@ function App() {
           name: "Fall Limited Edition Sneakers",
           price: 125.0,
           quantity,
-          image: "assets/images/image-product-1-thumbnail.jpg",
+          image: "/assets/images/image-product-1-thumbnail.jpg",
         },
       ]);
       setQuantity(0);
@@ -29,11 +30,15 @@ function App() {
     setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
+  const toggleCart = () => {
+    setIsCartVisible(!isCartVisible);
+  };
+
   return (
     <div className="App">
-      <Header />
-      <main className="container mx-auto p-6">
-        <div className="flex flex-col lg:flex-row">
+      <Header toggleCart={toggleCart} cartItemCount={cartItems.length} />
+      <main className="container mx-auto p-6 lg:p-16">
+        <div className="flex flex-col lg:flex-row lg:space-x-16">
           <div className="flex-1">
             <ImageCarousel />
           </div>
@@ -45,7 +50,9 @@ function App() {
             />
           </div>
         </div>
-        <Cart items={cartItems} onRemoveItem={handleRemoveItem} />
+        {isCartVisible && (
+          <Cart items={cartItems} onRemoveItem={handleRemoveItem} />
+        )}
       </main>
       <footer className="text-center mt-8">
         <div className="attribution">
