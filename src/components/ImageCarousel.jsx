@@ -33,7 +33,7 @@ const ImageCarousel = () => {
       <img
         src={images[currentImage]}
         alt="Product"
-        className="w-full rounded-lg mb-4 lg:h-[450px] object-cover"
+        className="w-full rounded-lg mb-4 lg:h-[450px] object-contain"
       />
       <button
         onClick={handlePrev}
