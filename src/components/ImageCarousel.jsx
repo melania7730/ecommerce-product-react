@@ -29,7 +29,10 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="relative">
+    <div
+      className="relative mt-7
+    "
+    >
       <img
         src={images[currentImage]}
         alt="Product"
@@ -47,7 +50,7 @@ const ImageCarousel = () => {
       >
         <img src={iconNext} alt="Next" />
       </button>
-      <div className="flex space-x-4 justify-center lg:justify-start">
+      <div className="flex space-x-4 justify-center lg:justify-center">
         {thumbnails.map((thumb, index) => (
           <img
             key={index}

@@ -38,7 +38,7 @@ function App() {
     <div className="App">
       <Header toggleCart={toggleCart} cartItemCount={cartItems.length} />
       <main className="container mx-auto p-6 lg:p-16">
-        <div className="flex flex-col lg:flex-row lg:space-x-16 items-center">
+        <div className="flex flex-col lg:flex-row lg:space-x-16 items-center ">
           <div className="flex-1">
             <ImageCarousel />
           </div>
