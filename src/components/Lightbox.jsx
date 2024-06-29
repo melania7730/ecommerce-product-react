@@ -7,14 +7,15 @@ import thumb1 from "../assets/images/image-product-1-thumbnail.jpg";
 import thumb2 from "../assets/images/image-product-2-thumbnail.jpg";
 import thumb3 from "../assets/images/image-product-3-thumbnail.jpg";
 import thumb4 from "../assets/images/image-product-4-thumbnail.jpg";
-import Lightbox from "./Lightbox";
+import closeIcon from "../assets/images/icon-close.svg";
+import nextIcon from "../assets/images/icon-next.svg";
+import prevIcon from "../assets/images/icon-previous.svg";
 
 const images = [image1, image2, image3, image4];
 const thumbnails = [thumb1, thumb2, thumb3, thumb4];
 
-const ImageCarousel = () => {
+const Lightbox = ({ isOpen, onClose }) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const handlePrev = () => {
     setCurrentImage((prevImage) =>
@@ -28,36 +29,35 @@ const ImageCarousel = () => {
     );
   };
 
-  const openLightbox = () => {
-    setIsLightboxOpen(true);
-  };
-
-  const closeLightbox = () => {
-    setIsLightboxOpen(false);
-  };
+  if (!isOpen) return null;
 
   return (
-    <>
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
       <div className="relative">
         <img
           src={images[currentImage]}
           alt="Product"
-          className="w-full rounded-lg cursor-pointer"
-          onClick={openLightbox}
+          className="w-full rounded-lg"
         />
         <button
           onClick={handlePrev}
           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
         >
-          &lt;
+          <img src={prevIcon} alt="Previous" />
         </button>
         <button
           onClick={handleNext}
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
         >
-          &gt;
+          <img src={nextIcon} alt="Next" />
         </button>
-        <div className="flex space-x-2 mt-4">
+        <button
+          onClick={onClose}
+          className="absolute top-0 right-0 bg-white p-2 rounded-full shadow-lg"
+        >
+          <img src={closeIcon} alt="Close" />
+        </button>
+        <div className="flex space-x-2 mt-4 justify-center">
           {thumbnails.map((thumb, index) => (
             <img
               key={index}
@@ -71,9 +71,8 @@ const ImageCarousel = () => {
           ))}
         </div>
       </div>
-      <Lightbox isOpen={isLightboxOpen} onClose={closeLightbox} />
-    </>
+    </div>
   );
 };
 
-export default ImageCarousel;
+export default Lightbox;
