@@ -1,20 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import iconMinus from "../assets/images/icon-minus.svg";
 import iconPlus from "../assets/images/icon-plus.svg";
 import IconCart from "../assets/images/icon-cart";
 import { ContextAll } from "../context/ContextAll";
 
-// import { CartContext } from "../context/CartContext";
-
-const ProductDetails = ({
-  // quantity,
-  // setQuantity,
-  handleAddToCart,
-}) => {
-  // const { quantity, setQuantity } = React.useContext(CartContext);
-
-  const AllContext = useContext(ContextAll);
-  const [quantity, setQuantity] = React.useState(0);
+const ProductDetails = ({ handleAddToCart }) => {
+  const { quantity, setQuantity } = React.useContext(ContextAll);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);

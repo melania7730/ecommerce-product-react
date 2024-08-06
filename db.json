@@ -3,5 +3,6 @@
     { "name": "shoes", "type": "fashion" },
     { "name": "soap", "type": "toiletteries" },
     { "name": "phone", "type": "gadget" }
-  ]
+  ],
+  "cart": [{ "quantity": 0 }, { "product": [] }]
 }

@@ -1,22 +1,12 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
-import ProductDetails from "./components/ProductDetails";
-import ImageCarousel from "./components/ImageCarousel";
-import Cart from "./components/Cart";
 import "./index.css";
-
 import Home from "./pages";
 import { ContextAll } from "./context/ContextAll";
 
 function App() {
-  /**
-   * refactor, memindahkan semua logic ke context.
-   */
-
-  const [quantity, setQuantity] = useState(0);
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartVisible, setIsCartVisible] = useState(false);
-
+  const { cartItems, setCartItems, isCartVisible, setIsCartVisible } =
+    React.useContext(ContextAll);
   const handleAddToCart = () => {
     if (quantity > 0) {
       setCartItems([
@@ -46,10 +36,8 @@ function App() {
       <Header toggleCart={toggleCart} cartItemCount={cartItems.length} />
       <main className="container mx-auto p-6 lg:p-16">
         <Home
-          cartItems={cartItems}
           handleAddToCart={handleAddToCart}
           handleRemoveItem={handleRemoveItem}
-          isCartVisible={isCartVisible}
         />
       </main>
       <footer className="text-center mt-8">
